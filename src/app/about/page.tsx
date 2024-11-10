@@ -3,7 +3,7 @@ import React from 'react';
 const NotificationPage = () => {
     return (
         <div>
-            Hellow World from Notification page
+            Hellow World from About page
         </div>
     );
 };

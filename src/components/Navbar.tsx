@@ -1,16 +1,33 @@
+"use client"
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 const Navbar = () => {
-  const links = (
-    <>
-      <li>
-        <a>Home</a>
-      </li>
-      <li>
-        <a>Submenu 2</a>
-      </li>
-    </>
-  );
+  const pathName = usePathname()
+  const links = [
+    {
+      title: "Home",
+      path: "/"
+    },
+    {
+      title: "About Us",
+      path: "/about",
+    },
+    {
+      title: "Search Donors",
+      path: "/search",
+    },
+    {
+      title: "Registration",
+      path: "/registration",
+    },
+    {
+      title: "Login",
+      path: "/login",
+    },
+  ];
   return (
     <div className="text-white">
       <div className="navbar bg-[#003752]">
@@ -36,19 +53,13 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
-              {
-                links
-              }
+              {links.map((link) => <Link  key={link.path} href={link.path}>{link.title}</Link>)}
             </ul>
           </div>
           <a className="btn btn-ghost text-xl">Blood-Line</a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            {
-              links
-            }
-          </ul>
+          <ul className="menu menu-horizontal px-1">{links.map((link) => <Link className={`mx-2 p-2 ${link.path === pathName ? "bg-black p-2" : ""}`} key={link.path} href={link.path}>{link.title}</Link>)}</ul>
         </div>
         <div className="navbar-end">
           <a className="btn">Button</a>
