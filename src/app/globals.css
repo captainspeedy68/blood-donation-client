@@ -15,6 +15,34 @@ body {
   font-family: 'Poppins', Arial, Helvetica, sans-serif;
 }
 
+/* .custom-shape-divider-top-1731668819 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1731668819 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 144px;
+  transform: rotateY(180deg);
+}
+
+.custom-shape-divider-top-1731668819 .shape-fill {
+  fill: red;
+}
+
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .custom-shape-divider-top-1731668819 svg {
+      width: calc(100% + 1.3px);
+      height: 135px;
+  }
+} */
 
 
 
