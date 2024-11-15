@@ -59,10 +59,10 @@ const Navbar = () => {
           <a className="btn btn-ghost text-xl">Blood-Line</a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{links.map((link) => <Link className={`mx-2 p-2 ${link.path === pathName ? "bg-black p-2" : ""}`} key={link.path} href={link.path}>{link.title}</Link>)}</ul>
+          <ul className="menu menu-horizontal px-1">{links.map((link) => <Link className={`mx-2 p-2 ${link.path === pathName ? "bg-black p-2 rounded-md" : ""}`} key={link.path} href={link.path}>{link.title}</Link>)}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          <a className="btn">Button</a>     
         </div>
       </div>
     </div>
