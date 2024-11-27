@@ -1,11 +1,13 @@
 import React from 'react';
+import FindDivisions from "../../components/FindDivisions"
 
-const SearchPage = () => {
+export default async function SearchPage () {
+ 
+  
     return (
         <div>
-            This is search page
-        </div>
+        <FindDivisions></FindDivisions>
+    </div>
     );
-};
-
-export default SearchPage;
+  };
+  
