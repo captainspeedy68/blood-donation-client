@@ -2,7 +2,7 @@ import React from "react";
 
 const Heading = () => {
   return (
-    <div className="wave-container relative">
+    <div className="wave-container">
       <img
         className="md:h-[900px] w-full "
         src="https://i.postimg.cc/RF1C0Z5D/7cb1aa65b5dc5595c84f0f5112cd9e86.png"

@@ -3,7 +3,7 @@ import React from "react";
 const JoiningMission = () => {
   return (
     <div className="bg-[#023752] w-full flex flex-col text-white ">
-      <svg className="w-full pb-1 top-0 left-0"
+      <svg className="w-full"
         width="1440"
         height="183"
         viewBox="0 0 1440 183"
@@ -19,7 +19,7 @@ const JoiningMission = () => {
       <div className=" mt-5 mb-10 flex justify-center p-20">
         <div className="leading-10">
         <span className="font-normal text-5xl">Join our life saving mission</span> <br></br><span className="font-normal text-3xl">Become a hero in Bangladesh – donate blood
-        with Share Blood and transform lives in your community today.</span>
+        with BloodLine and transform lives in your community today.</span>
         </div>
         
       </div>
