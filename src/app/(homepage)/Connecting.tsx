@@ -1,9 +1,12 @@
-import React from "react";
-import SearchDonor from "../../components/SearchDonor";
+
+import React, { useState } from "react";
+// import SearchDonor from "../../components/SearchDonor";
+import axios from "axios";
+import FindDivisions from "@/components/FindDivisions";
 
 const Connecting = () => {
   return (
-    <div className=" h-[1000px] bg-[url('https://i.ibb.co.com/TrBjFC9/43d8ac7bb106e4c7c82a84cfa4ca4801.png')]  bg-cover bg-center w-full">
+    <div className=" bg-[url('https://i.ibb.co.com/TrBjFC9/43d8ac7bb106e4c7c82a84cfa4ca4801.png')]  bg-cover bg-center w-full">
       <div className=" bg-white opacity-90 h-full">
         <div className="flex justify-center pt-40 p-8 items-center ">
           <div className=" flex-1 flex items-center justify-center">
@@ -35,8 +38,13 @@ const Connecting = () => {
           <div className="text-center font-normal text-2xl mb-12 mt-7">
             Search Donor
           </div>
-          <SearchDonor />
+          
         </div>
+        <div className="flex justify-around">
+        <FindDivisions ></FindDivisions>
+        </div>
+        
+        
       </div>
     </div>
   );
