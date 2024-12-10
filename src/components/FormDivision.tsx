@@ -35,7 +35,7 @@ const FormDivision: React.FC<DivisionProps> = ({ divisions, setDonors }) => {
         selectedDivision,
         selectedDistrict
       );
-      console.log(results);
+      // console.log(results);
 
       setDonors(results.data);
     } catch (error) {
@@ -49,7 +49,7 @@ const FormDivision: React.FC<DivisionProps> = ({ divisions, setDonors }) => {
 
   const handleDivisionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const divisionName = event.target.value;
-    console.log("Selected Division:", divisionName); // Log selected value
+    // console.log("Selected Division:", divisionName); // Log selected value
     setSelectedDivision(divisionName);
   
     const division = divisions.find((div) => div.name === divisionName);
@@ -59,7 +59,7 @@ const FormDivision: React.FC<DivisionProps> = ({ divisions, setDonors }) => {
 
   const handleDistrictChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const districtName = e.target.value;
-    console.log("Selected District:", districtName); // Log selected value
+    // console.log("Selected District:", districtName); // Log selected value
     setSelectedDistrict(districtName);
   };
   return (
