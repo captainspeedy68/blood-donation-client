@@ -1,8 +1,9 @@
 import { handleDonorSearch } from "@/services/postApi";
 import React, { useState } from "react";
+import { TDonor } from "./DivisionSelector";
 interface DivisionProps {
   divisions: Array<{ name: string; districts: string[] }>;
-  setDonors: React.Dispatch<React.SetStateAction<string[]>>; // Adjust the type based on `donors` state
+  setDonors: React.Dispatch<React.SetStateAction<TDonor[]>>; // Adjust the type based on `donors` state
 }
 const FormDivision: React.FC<DivisionProps> = ({ divisions, setDonors }) => {
   const [selectedDivision, setSelectedDivision] = useState<string>("");
@@ -34,7 +35,8 @@ const FormDivision: React.FC<DivisionProps> = ({ divisions, setDonors }) => {
         selectedDivision,
         selectedDistrict
       );
-      // console.log(results);
+      console.log(results);
+
       setDonors(results.data);
     } catch (error) {
       console.error("Search failed:", error);
@@ -45,19 +47,19 @@ const FormDivision: React.FC<DivisionProps> = ({ divisions, setDonors }) => {
     setSelectedBloodGroup(selectedBloodGroup);
   }
 
-  const handleDivisionChange = (
-    event: React.ChangeEvent<HTMLSelectElement>
-  ) => {
+  const handleDivisionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const divisionName = event.target.value;
+    console.log("Selected Division:", divisionName); // Log selected value
     setSelectedDivision(divisionName);
-
-    // Find districts of the selected division
+  
     const division = divisions.find((div) => div.name === divisionName);
     setDistricts(division ? division.districts : []);
+    setSelectedDistrict("");
   };
 
   const handleDistrictChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const districtName = e.target.value;
+    console.log("Selected District:", districtName); // Log selected value
     setSelectedDistrict(districtName);
   };
   return (
@@ -111,6 +113,7 @@ const FormDivision: React.FC<DivisionProps> = ({ divisions, setDonors }) => {
           </label>
           <select
             onChange={handleDistrictChange}
+            value={selectedDistrict}
             id="district"
             className="select select-bordered w-full max-w-xs bg-white"
           >
