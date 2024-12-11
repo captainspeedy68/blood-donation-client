@@ -29,5 +29,10 @@ export const getDivisions = async () => {
       throw error;
     }
   };
+
+
+
+  
+
   
   

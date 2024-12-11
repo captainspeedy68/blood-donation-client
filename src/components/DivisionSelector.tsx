@@ -1,11 +1,8 @@
 "use client";
 
-import { handleDonorSearch } from "@/services/postApi";
-// import axios from "axios";
-// import { HtmlContext } from "next/dist/server/route-modules/pages/vendored/contexts/entrypoints";
-
 import React, { useState } from "react";
 import FormDivision from "./FormDivision";
+import axios from "axios";
 
 export type TUserName = {
   firstName: string;
@@ -37,6 +34,20 @@ const DivisionSelector = ({
 }) => {
   const [donors, setDonors] = useState<TDonor[]>([]);
 
+  const handleMailSender = async () => {
+    const url = "http://localhost:4000/api/send-email/send";
+
+    // Extract email addresses from the selected donors
+    const emails = donors.map((donor) => donor.email);
+    console.log(emails);
+    try {
+      const result = await axios.post(url, { recipients: emails });
+      alert("Emails sent successfully!");
+    } catch (error) {
+      alert(`Error sending emails: ${error.message}`);
+    }
+  }; // This is where the missing closing brace was added.
+
   return (
     <div>
       <FormDivision divisions={divisions} setDonors={setDonors}></FormDivision>
@@ -46,7 +57,7 @@ const DivisionSelector = ({
           <div>Found {donors.length} matches</div>
           <div className="overflow-x-auto">
             <table className="table">
-              {/* head */}
+              {/* Table Head */}
               <thead>
                 <tr>
                   <th></th>
@@ -55,10 +66,10 @@ const DivisionSelector = ({
                   <th>Blood Group</th>
                 </tr>
               </thead>
+              {/* Table Body */}
               <tbody>
-                {/* rows */}
-                {donors?.map((donor, i) => (
-                  <tr>
+                {donors.map((donor, i) => (
+                  <tr key={donor.id}>
                     <th>{i + 1}</th>
                     <td>{donor.name.firstName}</td>
                     <td>{donor.gender}</td>
@@ -68,6 +79,10 @@ const DivisionSelector = ({
               </tbody>
             </table>
           </div>
+          {/* Button to send mail */}
+          <button onClick={handleMailSender} className="btn btn-primary">
+            Send Mail To All
+          </button>
         </div>
       )}
     </div>
