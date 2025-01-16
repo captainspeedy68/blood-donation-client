@@ -93,9 +93,9 @@ const Login = () => {
           : "http://localhost:4000/api/user/create-donor";
 
       // Send the client object with the password
-      const userResponse = await axios.post(endpoint, {
+      if (role == "client") {const userResponse = await axios.post(endpoint, {
         password, client
-      });
+      });}
 
       const data = userResponse.data;
     //   console.log(data);
